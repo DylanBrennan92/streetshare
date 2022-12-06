@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  get "activity_log", to: "activity_log#index", as: :activity_log
-  get "home", to: "home#index", as: :home
 
   root to: "home#index"
+
+  get "activity_log", to: "activity_log#index", as: :activity_log
+  get "home", to: "home#index", as: :home
+  get "sign_up", to: "registrations#new", as: :sign_up
+
+  post "sign_up", to: "registrations#create"
+  
 end
