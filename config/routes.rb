@@ -12,11 +12,16 @@ Rails.application.routes.draw do
   get "sign_up", to: "registrations#new", as: :sign_up
   post "sign_up", to: "registrations#create"
 
+  #existing users log in
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
 
-  get "password", to: "passwords#edit"
-  patch "password", to: "password#update"
+  #A logged in user can change their password
+  get "password", to: "passwords#edit", as: :edit_password
+  patch "password", to: "passwords#update"
+
+  #allow forgotten password to be reset
+  get "password/reset", to: "password_resets#new"
 
   #destroy session to log out user
   delete "logout", to: "sessions#destroy"

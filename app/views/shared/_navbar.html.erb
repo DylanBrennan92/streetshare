@@ -17,12 +17,6 @@
   <li class="nav-item">
     <%= link_to "Activity Log", activity_log_path, class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
-  </li>
-   <li class="nav-item">
-    <%= link_to "Log in", sign_in_path, class: "nav-link" %>
-  </li>
 </ul>
 
 
@@ -30,7 +24,7 @@
 <!--<ul class="navbar-nav ms-auto mb-2 mb-lg-0">-->
     <% if Current.user%>
     <li class="nav-item">
-    <span class="navbar-text"><%= Current.user.username%></span>
+    <%= link_to Current.user.username, edit_password_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
     <%=button_to "Logout", logout_path, method: :delete, class: "nav-link"%>
