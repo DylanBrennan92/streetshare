@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_login
   before_action :set_post, only: %i[ show edit update destroy ]
+
 
   # GET /posts or /posts.json
   def index
@@ -23,18 +25,25 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    @post.user_id = session[:user_id]
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @user.present?
+        @post.user_id = session[:user_id]
+        respond_to do |format|
+          if @post.save
+            format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+            format.json { render :show, status: :created, location: @post }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @post.errors, status: :unprocessable_entity }
+          end
+        end
+    else
+      flash[:alert] = "You must be logged in to create posts"
+      redirect_to sign_in_path
     end
-  end
+
+
+    end
+
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
@@ -67,6 +76,16 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :user_id, :image)
+
+      end
+
+    private
+  def require_login
+    if session[:user_id] = nil?
+      flash[:alert] = "You must be logged in to access this section"
+      redirect_to sign_in_path # halts request cycle
     end
-end
+  end
+
+  end
