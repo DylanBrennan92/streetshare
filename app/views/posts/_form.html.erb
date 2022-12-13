@@ -18,10 +18,11 @@
         <%= form.text_area :body, class: "form-control mt-1" %>
 
         <%= form.label :image , class: "mt-1"  %>
-        <%= form.file_field :image, class: "form-control mt-1" %>
+        <%= form.file_field :image, class: "form-control mt-1" ,accept: ".png, .jpg, .jpeg"%>
 
         <%= form.label :category, style: "display: block" %>
         <%= form.select :category, ['For sale', 'Looking to buy', 'Accommodation', 'Sports', 'Education', 'Services', 'Events'] ,class: "form-control mt-1 mb-3"%>
+
 
 
       </div>
