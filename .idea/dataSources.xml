@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="noticeboard: development" uuid="8db0e12a-8e16-4143-b9bd-5eddc13e92b1">
+    <data-source source="LOCAL" name="streetshare: development" uuid="8db0e12a-8e16-4143-b9bd-5eddc13e92b1">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/noticeboards_development</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/streetshares_development</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="noticeboard: test" uuid="c8523628-94a0-48f0-b5b8-a57389384399">
+    <data-source source="LOCAL" name="streetshare: test" uuid="c8523628-94a0-48f0-b5b8-a57389384399">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/noticeboards_test</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/streetshares_test</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="noticeboard: production" uuid="14193436-d15d-4c2e-a8ea-aa2000430483">
+    <data-source source="LOCAL" name="streetshare: production" uuid="14193436-d15d-4c2e-a8ea-aa2000430483">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/noticeboards_production</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/streetshares_production</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

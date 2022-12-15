@@ -1,6 +1,6 @@
 #README
 
-Noticeboards Web App
+streetshares Web App
 
 * Ruby version - 3.1.3
 
