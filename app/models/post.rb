@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 
   validate :validate_attachment_filetypes
 
+  has_many :group_items
+  has_many :groups, through: :group_posts
 
 
   private
