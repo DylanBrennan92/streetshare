@@ -1,0 +1,63 @@
+
+<div class="container mb-5">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<div class="lc-block">
+				<span editable="inline" class="small mt-4 d-block"></span>
+				<h2 editable="inline" class="display-2 mb-5">Welcome <%= Current.user.username %> </h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 mb-4" style="position: relative;">
+			<div class="lc-block text-center rounded shadow text-primary bg-light px-4 py-5" style="min-height:50vh">
+            <%= link_to "",create_post_path, class:"stretched-link" %>
+				<img src="/images/welcome_icons/people-group-solid.svg" style="width: 8em; height:8em;">
+				<h4 class="mt-3 mb-4" editable="inline">Join a Community Group&nbsp;</h4>
+				<p editable="inline">Search for established community groups in your area and apply to join.</p>
+			</div>
+		</div>
+		<div class="col-lg-6 mb-4" style="position: relative;">
+			<div class="lc-block text-center rounded shadow text-dark px-4 py-5 " style="min-height:50vh; background-color: #cbdad7">
+            <%= link_to "",create_group_path, class:"stretched-link" %>
+				<img src="/images/welcome_icons/person-digging-solid.svg" style="width: 8em; height:8em;">
+				<h4 class="mt-3 mb-4" editable="inline">Create a new community group</h4>
+				<p editable="inline">Ready to build a sharing community from the ground up? Great! Click here to get started</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!---->
+<div class="container-fluid p-0 overflow-hidden">
+	<div class="row g-0">
+		<div lc-helper="background" class="col-lg-6 order-lg-2 " style="min-height: 45vh; background-size:cover;background-image: url('/images/welcome_icons/ladder_diy.jpg');
+         background-repeat: no-repeat;">
+
+		</div>
+		<div class="col-lg-6 order-lg-1 my-auto px-5 py-5 ">
+			<div class="lc-block">
+				<div editable="rich">
+					<h1 class="display-2">For the Big projects</h1>
+					<p class="lead">Borrowing and sharing occasional use items lets you manage hone improvement costs while
+                    building better community connections</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row g-0">
+		<div lc-helper="background" class="col-lg-6" style="min-height: 45vh; background-size:cover; background-image: url('/images/welcome_icons/happy-people.jpg'); width:50%; height: 50%;
+        background-repeat: no-repeat;">
+		</div>
+		<div class="col-lg-6 my-auto px-5 py-5">
+			<div class="lc-block">
+				<div editable="rich">
+					<h1 class="display-2">Community-Focused</h1>
+					<p class="lead">StreetShare communities are localized, secure and trust networks of community members. 
+                    Members work together to pool resources for everyones shared benefit</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

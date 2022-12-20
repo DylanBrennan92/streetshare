@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "home#index"
+  get "welcome", to: "home#welcome", as: :welcome
 
   #basic routes to test - edit later
   get "activity_log", to: "activity_log#index", as: :activity_log

@@ -1,18 +1,20 @@
-<h1>Welcome back, Sign in</h1>
-<h3>Not a member yet? <%=link_to "Register now", sign_up_path %>
 
-<%= form_with url: sign_in_path do |form| %>
-    <div class="mb-3">
-        <%=form.label :email%>
-        <%=form.text_field :email, class:"form-control", placeholder:"yourname@email.com!"%>
-    </div>
-    <div class="mb-3">
-        <%=form.label :password%>
-        <%=form.password_field :password, class:"form-control", placeholder:"password"%>
-        <%=link_to "Forgot your password?", password_reset_path%>
-    </div>
-
-        <div class="mb-3">
+<div class="d-flex p-2 justify-content-center">
+    
+        <%= form_with url: sign_in_path do |form| %>
+            <div class="mb-3 py-2">
+            <h1 class="display-3 mb-24">Welcome back, Sign in</h1>
+            <h3 class="text-muted mb-3">Not a member yet? <%=link_to "Register now", sign_up_path %></h3>
+            <%=form.label :email%>
+            <%=form.text_field :email, class:"form-control", placeholder:"yourname@email.com!"%>
+        </div>
+        <div class="mb-3 py-2">
+            <%=form.label :password%>
+            <%=form.password_field :password, class:"form-control", placeholder:"password"%>
+            <%=link_to "Forgot your password?", password_reset_path%>
+        </div>
+        <div class="mb-3 py-4">
         <%=form.submit "Sign in" ,class:"btn btn-info"%>
     </div>
 <% end %>
+</div>

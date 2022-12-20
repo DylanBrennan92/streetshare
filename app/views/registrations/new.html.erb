@@ -1,5 +1,4 @@
-<h1>Sign up!</h1>
-
+<div class="d-flex p-2 justify-content-center">
 <%= form_with model: @user, url: sign_up_path do |form|%>
     <% if form.object.errors.any? %>
         <div class="alert alert-danger">
@@ -8,25 +7,28 @@
             <%end%>
         </div>
     <%end%>
-    <div class="mb-3">
+    <div class="mb-3 py-2">
+    <h1 class="display-3">Sign up!</h1>
         <%=form.label :email%>
         <%=form.text_field :email, class:"form-control", placeholder:"yourname@email.com!"%>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 py-2">
         <%=form.label :username%>
         <%=form.text_field :username, class:"form-control", placeholder:"Username"%>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 py-2">
         <%=form.label :password%>
         <%=form.password_field :password, class:"form-control", placeholder:"password"%>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 py-2">
     <%=form.label :password_confirmation%>
         <%=form.password_field :password_confirmation,class:"form-control", placeholder:"confirm password" %>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 py-2">
         <%=form.submit "Sign up" ,class:"btn btn-success"%>
     </div>
 
 <% end %>
+
+</div>
