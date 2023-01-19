@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,32 +8,32 @@ Rails.application.routes.draw do
   get "welcome", to: "home#welcome", as: :welcome
 
   #basic routes to test - edit later
-  get "activity_log", to: "activity_log#index", as: :activity_log
+  #get "activity_log", to: "activity_log#index", as: :activity_log
   get "home", to: "home#index", as: :home
   
-  #registrations routes [new and create]
-  get "sign_up", to: "registrations#new", as: :sign_up
-  post "sign_up", to: "registrations#create"
+  # #registrations routes [new and create]
+  # get "sign_up", to: "registrations#new", as: :sign_up
+  # post "sign_up", to: "registrations#create"
 
-  #existing users log in
-  get "sign_in", to: "sessions#new"
-  post "sign_in", to: "sessions#create"
+  # #existing users log in
+  # get "sign_in", to: "sessions#new"
+  # post "sign_in", to: "sessions#create"
 
-  #A logged in user can change their password
-  get "password", to: "passwords#edit", as: :edit_password
-  patch "password", to: "passwords#update"
+  # #A logged in user can change their password
+  # get "password", to: "passwords#edit", as: :edit_password
+  # patch "password", to: "passwords#update"
 
-  #allow forgotten password to be reset
-  get "password/reset", to: "password_resets#new"
-  post "password/reset", to: "password_resets#create"
-  get "password/reset/edit", to: "password_resets#edit"
-  patch "password/reset/edit", to: "password_resets#update"
+  # #allow forgotten password to be reset
+  # get "password/reset", to: "password_resets#new"
+  # post "password/reset", to: "password_resets#create"
+  # get "password/reset/edit", to: "password_resets#edit"
+  # patch "password/reset/edit", to: "password_resets#update"
 
   #routes for creating posts
   get "posts/new", to: "posts#new", as: :create_post
   post "posts/create", to: "home#index"
 
   #destroy session to log out user
-  delete "logout", to: "sessions#destroy"
+  #delete "logout", to: "sessions#destroy"
   
 end

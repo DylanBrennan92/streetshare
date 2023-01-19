@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_125116) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_130901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,15 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_125116) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "group_posts", force: :cascade do |t|
-    t.bigint "group_id", null: false
-    t.bigint "post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_posts_on_group_id"
-    t.index ["post_id"], name: "index_group_posts_on_post_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "content"
@@ -58,43 +49,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_125116) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.bigint "group_id", null: false
-    t.bigint "user_id", null: false
-  end
-
-  create_table "memberships", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "group_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_memberships_on_group_id"
-    t.index ["user_id"], name: "index_memberships_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "username", null: false
-    t.string "password_digest"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "group_posts", "groups"
-  add_foreign_key "group_posts", "posts"
-  add_foreign_key "memberships", "groups"
-  add_foreign_key "memberships", "users"
-  add_foreign_key "posts", "users"
 end
