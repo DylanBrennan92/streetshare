@@ -1,0 +1,9 @@
+<h3><%= @group.name%></h3>
+<p><%= @group.location%></p>
+<p><%= @group.content %></p>
+
+<%if current_user != nil%>
+<% if current_user.displayname = @group.group_owner%>
+    <%= render 'owneroptions'%>
+<%end%>
+<%end%>

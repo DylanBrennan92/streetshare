@@ -1,0 +1,42 @@
+<div class="container content-space-1">
+  <div class="flex-grow-1 mx-auto" style="max-width: 28rem;">
+
+<%= form_with model: @group do |form| %>
+    <% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+            <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+        </div>
+    <%end%>
+
+  <div class="mb-3 py-2">
+    <%= form.label :name %><br>
+    <%= form.text_field :name , class:"form-control"%>
+  </div>
+
+  <div class="mb-3 py-2">
+    <%= form.label :location %><br>
+    <%= form.text_field :location , class:"form-control"%>
+  </div>
+  <div class="mb-3 py-2">
+    <%= form.label :content %><br>
+    <%= form.text_area :content, class:"form-control" %>
+  </div>
+
+  <%
+=begin%>
+ <%= form.label :status, style: "display: block"%>
+  <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' ,class: "form-control mt-1 mb-3"%> 
+<%
+=end%>
+
+  <span style="display:none;"><%=form.select :group_owner, [current_user.displayname], selected: current_user.displayname%></span>
+
+  <div class="mb-3 py-2">
+    <%= form.submit "Create Group" ,class:"btn btn-success", style:"width: 100%; height:4em" %>
+  </div>
+<% end %>
+
+  </div>
+</div>

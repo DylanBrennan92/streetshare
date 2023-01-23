@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+            <h1>Viewing all Groups</h1>
+                <% @groups.each do |group| %>
+                   <li class="list-group-item">
+                      <%= link_to group.name, group%>
+                   </li>
+                    <%end%>
+            </ul>
+        </div>
+        <div class="col-2">
+        </div>
+    </div>

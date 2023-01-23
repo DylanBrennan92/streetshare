@@ -1,12 +1,19 @@
 
 <div class="container content-space-1">
   <div class="flex-grow-1 mx-auto" style="max-width: 28rem;">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|%>
+<form class="row g-3 needs-validation" novalidate>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="mb-3 py-2">
   <h1 class="display-3">Sign up!</h1>
+  <div class="mb-3 py-2">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"%>
+  </div>
+
+  <div class="mb-3 py-2">
+    <%= f.label :displayname %><br />
+    <%= f.text_field :displayname, autofocus: false, autocomplete: "Display Name", class:"form-control"%>
   </div>
 
   <div class="mb-3 py-2">
@@ -22,12 +29,20 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
   </div>
 
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" required>
+    <label class="form-check-label" for="flexSwitchCheckDefault">I agree to the <a href="#">terms & conditions</a></label>
+    <div class="invalid-feedback">
+      You must agree to the terms & conditions before creating an account
+    </div>
+  </div>
+
   <div class="mb-3 py-2">
-    <%= f.submit "Sign up" ,class:"btn btn-success", style:"width: 100%;" %>
+    <%= f.submit "Sign up" ,class:"btn btn-success", style:"width: 100%; height:4em" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+  </div>
 
 </div>
+</form>

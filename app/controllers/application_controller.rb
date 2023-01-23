@@ -1,17 +1,10 @@
 class ApplicationController < ActionController::Base
+    before_action :configure_permitted_parameters, if: :devise_controller?
 
-    before_action :set_current_user
 
-    def set_current_user
-        #@secret = ENV['DATABASE_PASSWORD']
-        if session[:user_id]
-            Current.user = User.find_by(id: session[:user_id]) 
-        else
-        
-        end
-    end
+    protected
 
-    def require_user_logged_in!
-        redirect_to sign_in_path, alert: "Sign in to perform this action" if Current.user.nil?
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:displayname])
     end
 end

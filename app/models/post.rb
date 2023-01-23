@@ -1,15 +1,16 @@
 class Post < ApplicationRecord
+  include Visible
 
+
+  #associations
+  belongs_to :board
+
+  #validations
   validates :title, presence: true
   validates :body, presence: true
   validates :category, presence: true
-
   has_one_attached :image
-
   validate :validate_attachment_filetypes
-
-  has_many :group_items
-  has_many :groups, through: :group_posts
 
 
   private
