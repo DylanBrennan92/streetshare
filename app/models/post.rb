@@ -1,9 +1,7 @@
 class Post < ApplicationRecord
-  include Visible
-
 
   #associations
-  belongs_to :board
+  belongs_to :group
 
   #validations
   validates :title, presence: true

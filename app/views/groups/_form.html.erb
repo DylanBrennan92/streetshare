@@ -1,4 +1,4 @@
-<div class="container content-space-1">
+<div class="container content-space-1 min-vh-100">
   <div class="flex-grow-1 mx-auto" style="max-width: 28rem;">
 
 <%= form_with model: @group do |form| %>
@@ -36,6 +36,17 @@
   <div class="mb-3 py-2">
     <%= form.submit "Create Group" ,class:"btn btn-success", style:"width: 100%; height:4em" %>
   </div>
+
+  <%
+=begin%>
+ <div class="d-flex justify-content-center" >
+    <div class="spinner-border text-success"style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> 
+<%
+=end%>
+
 <% end %>
 
   </div>

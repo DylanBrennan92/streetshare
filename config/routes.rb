@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
   resources :groups do
     resources :posts
   end
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
+
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   get "groups/new", to: "groups#new", as: :create_group
   get "group/:id", to: "groups#show", as: :show_group
   post "groups/:id/edit", to: "groups#edit"
+  get "search", to: "groups#search"
 
 
   #routes for creating posts

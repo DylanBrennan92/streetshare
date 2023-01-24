@@ -1,15 +1,13 @@
 <div class="container content-center">
-
-  <%= form_with(model: post) do |form| %>
-    <% if form.object.errors.any? %>
-      <div class="alert alert-danger">
+<h3>Add a post to this group</h3>
+<%= form_with model: [@group, @group.posts.build] do |form| %>
+<% if form.object.errors.any? %>
+    <div class="alert alert-danger">
         <% form.object.errors.full_messages.each do |message| %>
           <div><%= message %></div>
         <% end %>
-      </div>
-    <% end %>
-
-    <form>
+    </div>
+<% end %>
       <div class="form-group">
         <%= form.label :title, style: "display: block" %>
         <%= form.text_field :title, class: "form-control mt-1" %>
@@ -21,14 +19,12 @@
         <%= form.file_field :image, class: "form-control mt-1" ,accept: ".png, .jpg, .jpeg"%>
 
         <%= form.label :category, style: "display: block" %>
-        <%= form.select :category, ['For sale', 'Looking to buy', 'Accommodation', 'Sports', 'Education', 'Services', 'Events'] ,class: "form-control mt-1 mb-3"%>
-
-
-
+        <%= form.select :category, ['Gardening', 'DIY', 'Sports', 'Education', 'Event', 'Services'] ,class: "form-control mt-1 mb-3"%>
+        <span style="display:none;"><%=form.select :posted_by, [current_user.displayname], selected: current_user.displayname%></span>
       </div>
 
       <div>
-        <%= form.submit class: "btn btn-primary mt-4" %>
+        <%= form.submit "Create Post", class: "btn btn-primary mt-4" %>
       </div>
     </form>
   <% end %>

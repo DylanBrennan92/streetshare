@@ -14,8 +14,10 @@
         StreetShare helps you save money while building an active community network of mutual support
       </p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-primary button-lg px-4m me-md-2" style="background-color: #0f9582; border-color: #0f9582;">  Sign up  </button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4" style="background-color: #222c29; color:white;">Login</button>
+        <button type="button" class="btn btn-primary button-lg px-4m me-md-2" style="background-color: #0f9582; border-color: #0f9582;">
+        <%= link_to "Sign Up", new_user_registration_path,class: "nav-link text-white"%></button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4" style="background-color: #222c29; color:white;">
+        <%= link_to "Log in", new_user_session_path, class: "nav-link text-white"%></button>
       </div>
     </div>
   </div>
@@ -24,6 +26,7 @@
 
       <div class="album py-5 bg-gradient" style="background-color: #0c9972">
         <div class="container">
+        <p class="display-2">Some recent sharing activity!</p>
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
