@@ -18,6 +18,7 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"]
   database: streetshares_production
   username: <%= ENV['DATABASE_ADMIN_ROLE'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['STREETSHARES_PRODUCTION_DATABASE_PASSWORD'] %>
